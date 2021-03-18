@@ -191,6 +191,7 @@ func (s *Server) buildMuxer() {
 	s.mux = mux.NewRouter()
 
 	routers := []*mux.Router{
+		s.mux,
 		s.mux.PathPrefix(apiPrefix).Subrouter(),
 		s.mux.Host(s.publicHost).PathPrefix(apiPrefix).Subrouter(),
 	}
